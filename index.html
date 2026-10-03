@@ -1,12 +1,16 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Lumen OS</title>
 
+<meta name="description" content="Lumen OS — A modern, fast and beautiful operating system.">
+<meta name="theme-color" content="#08080d">
+
 <style>
+
 * {
     margin: 0;
     padding: 0;
@@ -18,12 +22,28 @@ html {
 }
 
 body {
-    font-family: Inter, Arial, Helvetica, sans-serif;
-    background:
-        radial-gradient(circle at 20% 10%, rgba(110, 80, 255, .25), transparent 35%),
-        radial-gradient(circle at 80% 20%, rgba(0, 180, 255, .18), transparent 30%),
-        #050509;
+    font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
     color: white;
+    background:
+        radial-gradient(
+            circle at 20% 10%,
+            rgba(110, 75, 255, 0.24),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 85% 15%,
+            rgba(0, 180, 255, 0.16),
+            transparent 30%
+        ),
+        #050509;
+
     min-height: 100vh;
     overflow-x: hidden;
 }
@@ -32,253 +52,408 @@ body {
 
 body::before {
     content: "";
+
     position: fixed;
-    width: 600px;
-    height: 600px;
+
+    width: 700px;
+    height: 700px;
+
     left: 50%;
-    top: 40%;
+    top: 45%;
+
     transform: translate(-50%, -50%);
-    background: radial-gradient(circle, rgba(120, 80, 255, .12), transparent 65%);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(115, 75, 255, 0.12),
+            transparent 65%
+        );
+
     filter: blur(30px);
+
     pointer-events: none;
+
     z-index: -1;
 }
 
-/* NAVBAR */
+/* =========================
+   NAVIGATION
+========================= */
 
 nav {
     position: fixed;
+
     top: 18px;
     left: 50%;
+
     transform: translateX(-50%);
+
     width: min(1100px, calc(100% - 30px));
+
     padding: 13px 18px;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
 
-    border: 1px solid rgba(255,255,255,.12);
-    background: rgba(15,15,22,.62);
+    background: rgba(15, 15, 22, 0.65);
+
+    border: 1px solid rgba(255,255,255,0.12);
+
+    border-radius: 18px;
+
     backdrop-filter: blur(25px);
     -webkit-backdrop-filter: blur(25px);
 
-    border-radius: 18px;
-    z-index: 1000;
+    box-shadow:
+        0 10px 50px rgba(0,0,0,0.3);
 
-    box-shadow: 0 10px 50px rgba(0,0,0,.3);
+    z-index: 1000;
 }
 
 .logo {
     display: flex;
     align-items: center;
+
     gap: 10px;
-    font-weight: 700;
+
     font-size: 18px;
+    font-weight: 700;
 }
 
 .logo-icon {
     width: 34px;
     height: 34px;
-    border-radius: 10px;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    background: linear-gradient(135deg, #8d6bff, #5d35ff);
-    box-shadow: 0 0 25px rgba(105,70,255,.45);
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #9678ff,
+            #5732ff
+        );
+
+    box-shadow:
+        0 0 25px rgba(105,70,255,0.45);
+
     font-size: 17px;
 }
 
 .nav-links {
     display: flex;
-    gap: 8px;
+    gap: 5px;
 }
 
 .nav-links a {
-    color: rgba(255,255,255,.7);
+    color: rgba(255,255,255,0.65);
+
     text-decoration: none;
+
     padding: 9px 13px;
+
     border-radius: 10px;
-    transition: .2s;
+
     font-size: 14px;
+
+    transition: 0.2s;
 }
 
 .nav-links a:hover {
     color: white;
-    background: rgba(255,255,255,.08);
+
+    background:
+        rgba(255,255,255,0.08);
 }
 
-/* HERO */
+/* =========================
+   HERO
+========================= */
 
 .hero {
     min-height: 100vh;
-    padding: 150px 20px 80px;
+
+    padding:
+        150px
+        20px
+        100px;
 
     display: flex;
     align-items: center;
     justify-content: center;
+
     text-align: center;
 }
 
 .hero-content {
-    max-width: 900px;
+    width: 100%;
+    max-width: 1000px;
 }
 
 .badge {
     display: inline-flex;
     align-items: center;
+
     gap: 8px;
 
-    padding: 8px 13px;
+    padding: 8px 14px;
+
     border-radius: 999px;
 
-    background: rgba(255,255,255,.06);
-    border: 1px solid rgba(255,255,255,.12);
+    background:
+        rgba(255,255,255,0.055);
 
-    color: rgba(255,255,255,.72);
+    border:
+        1px solid rgba(255,255,255,0.12);
+
+    color:
+        rgba(255,255,255,0.7);
+
     font-size: 13px;
 
     backdrop-filter: blur(15px);
 
-    animation: fadeUp .8s ease both;
+    animation:
+        fadeUp 0.8s ease both;
 }
 
 .badge-dot {
     width: 7px;
     height: 7px;
-    background: #7c5cff;
+
     border-radius: 50%;
-    box-shadow: 0 0 12px #7c5cff;
+
+    background: #8565ff;
+
+    box-shadow:
+        0 0 12px #8565ff;
 }
 
 h1 {
     margin-top: 25px;
 
-    font-size: clamp(58px, 11vw, 120px);
-    line-height: .9;
-    letter-spacing: -6px;
+    font-size:
+        clamp(
+            65px,
+            12vw,
+            135px
+        );
 
-    background: linear-gradient(
-        135deg,
-        #ffffff 10%,
-        #b9aaff 45%,
-        #7655ff 80%
-    );
+    line-height: 0.9;
+
+    letter-spacing: -7px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff 10%,
+            #c4b8ff 45%,
+            #7655ff 85%
+        );
 
     -webkit-background-clip: text;
     background-clip: text;
+
     color: transparent;
 
-    animation: fadeUp .8s .1s ease both;
+    animation:
+        fadeUp 0.8s 0.1s ease both;
 }
 
 .subtitle {
-    margin: 28px auto 0;
     max-width: 650px;
 
-    color: rgba(255,255,255,.62);
+    margin:
+        30px auto 0;
+
+    color:
+        rgba(255,255,255,0.58);
+
     font-size: 19px;
+
     line-height: 1.7;
 
-    animation: fadeUp .8s .2s ease both;
+    animation:
+        fadeUp 0.8s 0.2s ease both;
 }
 
 .buttons {
     margin-top: 35px;
 
     display: flex;
+    align-items: center;
     justify-content: center;
+
     gap: 12px;
+
     flex-wrap: wrap;
 
-    animation: fadeUp .8s .3s ease both;
+    animation:
+        fadeUp 0.8s 0.3s ease both;
 }
 
 .btn {
-    padding: 14px 22px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding:
+        14px
+        22px;
+
     border-radius: 13px;
 
     text-decoration: none;
-    font-weight: 600;
+
     font-size: 15px;
 
-    transition: .25s;
+    font-weight: 600;
 
-    cursor: pointer;
+    transition:
+        transform 0.25s,
+        box-shadow 0.25s,
+        background 0.25s;
 }
 
 .btn-primary {
     color: white;
-    background: linear-gradient(135deg, #7655ff, #5732ff);
-    box-shadow: 0 10px 35px rgba(95,55,255,.35);
+
+    background:
+        linear-gradient(
+            135deg,
+            #7959ff,
+            #5430ff
+        );
+
+    box-shadow:
+        0 10px 35px
+        rgba(95,55,255,0.35);
 }
 
 .btn-primary:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 15px 45px rgba(95,55,255,.5);
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 15px 45px
+        rgba(95,55,255,0.5);
 }
 
 .btn-secondary {
-    color: rgba(255,255,255,.85);
-    background: rgba(255,255,255,.06);
-    border: 1px solid rgba(255,255,255,.12);
+    color:
+        rgba(255,255,255,0.85);
+
+    background:
+        rgba(255,255,255,0.06);
+
+    border:
+        1px solid rgba(255,255,255,0.12);
 }
 
 .btn-secondary:hover {
-    background: rgba(255,255,255,.1);
-    transform: translateY(-3px);
-}
-
-/* MOCK DESKTOP */
-
-.desktop-preview {
-    margin: 80px auto 0;
-    width: min(1000px, 95vw);
-
-    aspect-ratio: 16 / 9;
-
-    border-radius: 22px;
-    border: 1px solid rgba(255,255,255,.15);
+    transform:
+        translateY(-3px);
 
     background:
-        radial-gradient(circle at 30% 40%, rgba(125,80,255,.5), transparent 30%),
-        radial-gradient(circle at 70% 60%, rgba(0,150,255,.35), transparent 30%),
-        linear-gradient(135deg, #11101e, #07070c);
+        rgba(255,255,255,0.1);
+}
 
-    box-shadow:
-        0 40px 100px rgba(0,0,0,.55),
-        0 0 80px rgba(100,70,255,.12);
+/* =========================
+   OS PREVIEW
+========================= */
 
-    overflow: hidden;
+.desktop-preview {
     position: relative;
 
-    animation: float 6s ease-in-out infinite;
+    width:
+        min(
+            1000px,
+            95vw
+        );
+
+    aspect-ratio:
+        16 / 9;
+
+    margin:
+        80px auto 0;
+
+    overflow: hidden;
+
+    border-radius: 22px;
+
+    border:
+        1px solid rgba(255,255,255,0.15);
+
+    background:
+        radial-gradient(
+            circle at 30% 40%,
+            rgba(125,80,255,0.5),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 70% 60%,
+            rgba(0,150,255,0.35),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #11101e,
+            #07070c
+        );
+
+    box-shadow:
+        0 40px 100px
+        rgba(0,0,0,0.55),
+
+        0 0 80px
+        rgba(100,70,255,0.12);
+
+    animation:
+        floating 6s ease-in-out infinite;
 }
 
 .desktop-top {
     height: 38px;
-    border-bottom: 1px solid rgba(255,255,255,.08);
 
     display: flex;
     align-items: center;
-    padding: 0 15px;
+
     gap: 7px;
 
-    background: rgba(0,0,0,.2);
+    padding:
+        0 15px;
+
+    background:
+        rgba(0,0,0,0.25);
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,0.08);
 }
 
 .window-dot {
     width: 9px;
     height: 9px;
+
     border-radius: 50%;
-    background: rgba(255,255,255,.2);
+
+    background:
+        rgba(255,255,255,0.22);
 }
 
 .desktop-content {
     position: absolute;
-    inset: 38px 0 0;
+
+    inset:
+        38px
+        0
+        0
+        0;
 
     display: flex;
     align-items: center;
@@ -286,86 +461,208 @@ h1 {
 }
 
 .lumen-card {
-    width: 330px;
-    padding: 25px;
+    width:
+        min(
+            360px,
+            70%
+        );
 
-    background: rgba(20,20,35,.58);
-    border: 1px solid rgba(255,255,255,.13);
+    padding: 28px;
 
     border-radius: 20px;
 
-    backdrop-filter: blur(25px);
+    background:
+        rgba(20,20,35,0.58);
 
-    box-shadow: 0 25px 60px rgba(0,0,0,.35);
+    border:
+        1px solid
+        rgba(255,255,255,0.13);
+
+    backdrop-filter:
+        blur(25px);
+
+    box-shadow:
+        0 25px 60px
+        rgba(0,0,0,0.35);
 }
 
-.lumen-card h3 {
+.lumen-logo {
+    width: 52px;
+    height: 52px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 20px;
+
+    border-radius: 15px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #9678ff,
+            #5732ff
+        );
+
+    box-shadow:
+        0 0 30px
+        rgba(100,70,255,0.4);
+
     font-size: 24px;
 }
 
-.lumen-card p {
-    margin-top: 8px;
-    color: rgba(255,255,255,.5);
-    font-size: 13px;
+.lumen-card h3 {
+    font-size: 25px;
 }
 
-/* SECTIONS */
+.lumen-card p {
+    margin-top: 9px;
+
+    color:
+        rgba(255,255,255,0.5);
+
+    font-size: 14px;
+}
+
+/* Fake OS dock */
+
+.dock {
+    position: absolute;
+
+    bottom: 18px;
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    display: flex;
+
+    gap: 8px;
+
+    padding:
+        8px 11px;
+
+    border-radius: 15px;
+
+    background:
+        rgba(15,15,25,0.65);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.12);
+
+    backdrop-filter:
+        blur(20px);
+}
+
+.dock-item {
+    width: 36px;
+    height: 36px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background:
+        rgba(255,255,255,0.08);
+
+    font-size: 15px;
+}
+
+/* =========================
+   SECTIONS
+========================= */
 
 section {
-    padding: 110px 20px;
+    padding:
+        110px 20px;
 }
 
 .section-container {
     max-width: 1100px;
-    margin: auto;
+
+    margin:
+        0 auto;
 }
 
 .section-title {
-    font-size: clamp(35px, 5vw, 55px);
-    letter-spacing: -2px;
+    font-size:
+        clamp(
+            35px,
+            5vw,
+            55px
+        );
+
+    letter-spacing:
+        -2px;
 }
 
 .section-description {
-    color: rgba(255,255,255,.55);
-    margin-top: 12px;
-    max-width: 600px;
+    max-width: 620px;
+
+    margin-top: 13px;
+
+    color:
+        rgba(255,255,255,0.55);
+
     line-height: 1.7;
 }
 
-/* FEATURES */
+/* =========================
+   FEATURES
+========================= */
 
 .features {
-    margin-top: 50px;
-
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
     gap: 15px;
+
+    margin-top: 50px;
 }
 
 .feature {
-    padding: 28px;
+    min-height: 220px;
 
-    min-height: 200px;
+    padding: 28px;
 
     border-radius: 20px;
 
-    background: rgba(255,255,255,.045);
-    border: 1px solid rgba(255,255,255,.09);
+    background:
+        rgba(255,255,255,0.045);
 
-    backdrop-filter: blur(20px);
+    border:
+        1px solid
+        rgba(255,255,255,0.09);
 
-    transition: .3s;
+    backdrop-filter:
+        blur(20px);
+
+    transition:
+        transform 0.3s,
+        background 0.3s,
+        border 0.3s;
 }
 
 .feature:hover {
-    transform: translateY(-7px);
-    border-color: rgba(130,100,255,.35);
-    background: rgba(255,255,255,.065);
+    transform:
+        translateY(-7px);
+
+    background:
+        rgba(255,255,255,0.065);
+
+    border-color:
+        rgba(130,100,255,0.35);
 }
 
 .feature-icon {
-    width: 45px;
-    height: 45px;
+    width: 46px;
+    height: 46px;
 
     display: flex;
     align-items: center;
@@ -373,96 +670,148 @@ section {
 
     border-radius: 13px;
 
-    background: rgba(110,80,255,.13);
-    border: 1px solid rgba(130,100,255,.2);
+    background:
+        rgba(110,80,255,0.13);
+
+    border:
+        1px solid
+        rgba(130,100,255,0.2);
 
     font-size: 20px;
 }
 
 .feature h3 {
     margin-top: 22px;
+
     font-size: 19px;
 }
 
 .feature p {
-    margin-top: 8px;
-    color: rgba(255,255,255,.5);
-    line-height: 1.6;
+    margin-top: 9px;
+
+    color:
+        rgba(255,255,255,0.5);
+
     font-size: 14px;
+
+    line-height: 1.6;
 }
 
-/* DOWNLOAD */
+/* =========================
+   DOWNLOAD
+========================= */
 
 .download {
     text-align: center;
 }
 
 .download-box {
-    margin-top: 45px;
+    padding:
+        70px 30px;
 
-    padding: 60px 30px;
+    margin-top: 45px;
 
     border-radius: 25px;
 
     background:
-        radial-gradient(circle at center, rgba(110,75,255,.15), transparent 60%),
-        rgba(255,255,255,.035);
+        radial-gradient(
+            circle at center,
+            rgba(110,75,255,0.15),
+            transparent 60%
+        ),
+        rgba(255,255,255,0.035);
 
-    border: 1px solid rgba(255,255,255,.1);
+    border:
+        1px solid
+        rgba(255,255,255,0.1);
+}
+
+.download-box .section-description {
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .version {
-    color: rgba(255,255,255,.4);
-    margin-top: 15px;
+    margin-top: 17px;
+
+    color:
+        rgba(255,255,255,0.35);
+
     font-size: 13px;
 }
 
-/* FOOTER */
+/* =========================
+   FOOTER
+========================= */
 
 footer {
-    padding: 40px 20px;
+    padding:
+        40px 20px;
+
     text-align: center;
 
-    border-top: 1px solid rgba(255,255,255,.07);
+    border-top:
+        1px solid
+        rgba(255,255,255,0.07);
 
-    color: rgba(255,255,255,.35);
+    color:
+        rgba(255,255,255,0.35);
+
     font-size: 13px;
 }
 
-/* ANIMATIONS */
+/* =========================
+   ANIMATIONS
+========================= */
 
 @keyframes fadeUp {
+
     from {
         opacity: 0;
-        transform: translateY(20px);
+
+        transform:
+            translateY(20px);
     }
 
     to {
         opacity: 1;
-        transform: translateY(0);
+
+        transform:
+            translateY(0);
     }
 }
 
-@keyframes float {
-    0%, 100% {
-        transform: translateY(0);
+@keyframes floating {
+
+    0%,
+    100% {
+        transform:
+            translateY(0);
     }
 
     50% {
-        transform: translateY(-12px);
+        transform:
+            translateY(-12px);
     }
 }
 
-/* MOBILE */
+/* =========================
+   MOBILE
+========================= */
 
 @media (max-width: 750px) {
+
+    nav {
+        top: 10px;
+    }
 
     .nav-links {
         display: none;
     }
 
     h1 {
-        letter-spacing: -3px;
+        letter-spacing:
+            -4px;
     }
 
     .subtitle {
@@ -470,235 +819,395 @@ footer {
     }
 
     .features {
-        grid-template-columns: 1fr;
-    }
-
-    .desktop-preview {
-        border-radius: 15px;
+        grid-template-columns:
+            1fr;
     }
 
     section {
-        padding: 80px 20px;
+        padding:
+            80px 20px;
+    }
+
+    .desktop-preview {
+        border-radius:
+            15px;
+    }
+
+    .lumen-card {
+        padding: 20px;
+    }
+
+    .dock {
+        transform:
+            translateX(-50%)
+            scale(0.85);
     }
 }
+
 </style>
 </head>
 
 <body>
 
+<!-- =========================
+     NAVIGATION
+========================= -->
+
 <nav>
+
     <div class="logo">
-        <div class="logo-icon">✦</div>
+
+        <div class="logo-icon">
+            ✦
+        </div>
+
         Lumen OS
+
     </div>
 
+
     <div class="nav-links">
-        <a href="#features">Features</a>
-        <a href="#download">Download</a>
+
+        <a href="#features">
+            Features
+        </a>
+
+        <a href="#download">
+            Download
+        </a>
+
     </div>
+
 </nav>
 
 
-<!-- HERO -->
+<!-- =========================
+     HERO
+========================= -->
 
 <header class="hero">
 
-<div class="hero-content">
+    <div class="hero-content">
 
-    <div class="badge">
-        <span class="badge-dot"></span>
-        The future starts here
-    </div>
+        <div class="badge">
 
-    <h1>Lumen OS</h1>
+            <span class="badge-dot"></span>
 
-    <p class="subtitle">
-        A modern operating system designed to be fast,
-        beautiful, and yours.
-    </p>
-
-    <div class="buttons">
-        <a class="btn btn-primary" id="heroDownload" href="#">
-            Download Lumen OS
-        </a>
-
-        <a class="btn btn-secondary" href="#features">
-            Explore Lumen
-        </a>
-    </div>
-
-    <div class="desktop-preview">
-
-        <div class="desktop-top">
-            <span class="window-dot"></span>
-            <span class="window-dot"></span>
-            <span class="window-dot"></span>
-        </div>
-
-        <div class="desktop-content">
-
-            <div class="lumen-card">
-                <h3>Welcome to Lumen.</h3>
-                <p>
-                    Simple. Fast. Beautiful.
-                </p>
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
-
-</header>
-
-
-<!-- FEATURES -->
-
-<section id="features">
-
-<div class="section-container">
-
-    <h2 class="section-title">
-        Built different.
-    </h2>
-
-    <p class="section-description">
-        Lumen OS focuses on the things that matter:
-        performance, simplicity, and a clean experience.
-    </p>
-
-
-    <div class="features">
-
-        <div class="feature">
-
-            <div class="feature-icon">
-                ⚡
-            </div>
-
-            <h3>Fast</h3>
-
-            <p>
-                Lightweight by design, with an experience
-                focused on keeping things responsive.
-            </p>
+            The future starts here
 
         </div>
 
 
-        <div class="feature">
-
-            <div class="feature-icon">
-                ◈
-            </div>
-
-            <h3>Beautiful</h3>
-
-            <p>
-                A clean interface with modern visuals,
-                smooth transitions, and thoughtful details.
-            </p>
-
-        </div>
+        <h1>
+            Lumen OS
+        </h1>
 
 
-        <div class="feature">
+        <p class="subtitle">
 
-            <div class="feature-icon">
-                🔒
-            </div>
+            A modern operating system designed
+            to be fast, beautiful, and yours.
 
-            <h3>Your OS</h3>
-
-            <p>
-                Lumen is built around giving you control
-                over your own computing experience.
-            </p>
-
-        </div>
-
-    </div>
-
-</div>
-
-</section>
-
-
-<!-- DOWNLOAD -->
-
-<section class="download" id="download">
-
-<div class="section-container">
-
-    <div class="download-box">
-
-        <h2 class="section-title">
-            Ready for Lumen?
-        </h2>
-
-        <p class="section-description" style="margin-left:auto;margin-right:auto;">
-            Download the latest version and experience
-            Lumen OS for yourself.
         </p>
+
 
         <div class="buttons">
 
             <a
                 class="btn btn-primary"
-                id="downloadButton"
+                id="heroDownload"
                 href="#"
             >
-                Download Lumen OS
+                ↓&nbsp; Download Lumen OS
+            </a>
+
+
+            <a
+                class="btn btn-secondary"
+                href="#features"
+            >
+                Explore Lumen
             </a>
 
         </div>
 
-        <div class="version">
-            Lumen OS • Latest Release
+
+        <!-- OS PREVIEW -->
+
+        <div class="desktop-preview">
+
+            <div class="desktop-top">
+
+                <span class="window-dot"></span>
+                <span class="window-dot"></span>
+                <span class="window-dot"></span>
+
+            </div>
+
+
+            <div class="desktop-content">
+
+                <div class="lumen-card">
+
+                    <div class="lumen-logo">
+                        ✦
+                    </div>
+
+                    <h3>
+                        Welcome to Lumen.
+                    </h3>
+
+                    <p>
+                        Simple. Fast. Beautiful.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="dock">
+
+                <div class="dock-item">
+                    ✦
+                </div>
+
+                <div class="dock-item">
+                    ▣
+                </div>
+
+                <div class="dock-item">
+                    ◉
+                </div>
+
+                <div class="dock-item">
+                    ⚙
+                </div>
+
+            </div>
+
         </div>
 
     </div>
 
-</div>
+</header>
+
+
+<!-- =========================
+     FEATURES
+========================= -->
+
+<section id="features">
+
+    <div class="section-container">
+
+        <h2 class="section-title">
+            Built different.
+        </h2>
+
+
+        <p class="section-description">
+
+            Lumen OS focuses on the things
+            that matter: performance,
+            simplicity, and a clean experience.
+
+        </p>
+
+
+        <div class="features">
+
+            <div class="feature">
+
+                <div class="feature-icon">
+                    ⚡
+                </div>
+
+                <h3>
+                    Fast
+                </h3>
+
+                <p>
+                    Lightweight by design,
+                    with an experience focused
+                    on keeping things responsive.
+                </p>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="feature-icon">
+                    ◈
+                </div>
+
+                <h3>
+                    Beautiful
+                </h3>
+
+                <p>
+                    A clean interface with modern
+                    visuals, smooth transitions,
+                    and thoughtful details.
+                </p>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="feature-icon">
+                    🔒
+                </div>
+
+                <h3>
+                    Your OS
+                </h3>
+
+                <p>
+                    Lumen is built around giving
+                    you control over your own
+                    computing experience.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </section>
 
 
+<!-- =========================
+     DOWNLOAD
+========================= -->
+
+<section
+    class="download"
+    id="download"
+>
+
+    <div class="section-container">
+
+        <div class="download-box">
+
+            <h2 class="section-title">
+                Ready for Lumen?
+            </h2>
+
+
+            <p class="section-description">
+
+                Download the latest version
+                and experience Lumen OS
+                for yourself.
+
+            </p>
+
+
+            <div class="buttons">
+
+                <a
+                    class="btn btn-primary"
+                    id="downloadButton"
+                    href="#"
+                >
+                    ↓&nbsp; Download Lumen OS
+                </a>
+
+            </div>
+
+
+            <div class="version">
+                Lumen OS • Release 1
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
 <footer>
-    © 2026 Lumen OS. Built with ♥.
+
+    © 2026 Lumen OS.
+    Built with ♥.
+
 </footer>
 
 
 <script>
 
 /*
-====================================================
-LUMEN OS DOWNLOAD REDIRECT
-====================================================
+==================================================
+LUMEN OS DOWNLOAD LINK
+==================================================
 
-CHANGE THIS URL ONLY.
+Change this ONE URL whenever you want to
+redirect the download button somewhere else.
 
-Example:
-
-const DOWNLOAD_URL =
-    "https://github.com/YOURNAME/YOURREPO/releases/download/v1.0/LumenOS.iso";
-
-Or you can use any other download URL.
-
-====================================================
+Current Lumen OS ISO:
+==================================================
 */
 
-const DOWNLOAD_URL = "https://github.com/guldagibrahimefe35-cmd/lumen-os/releases/download/1/lumen.iso";
+const DOWNLOAD_URL =
+    "https://github.com/guldagibrahimefe35-cmd/lumen-os/releases/download/1/lumen.iso";
 
 
-/* Apply the URL to both download buttons */
+/*
+==================================================
+DO NOT EDIT BELOW THIS LINE
+==================================================
+*/
 
-document.getElementById("heroDownload").href = DOWNLOAD_URL;
-document.getElementById("downloadButton").href = DOWNLOAD_URL;
+const heroDownload =
+    document.getElementById("heroDownload");
+
+const downloadButton =
+    document.getElementById("downloadButton");
+
+
+heroDownload.href =
+    DOWNLOAD_URL;
+
+downloadButton.href =
+    DOWNLOAD_URL;
+
+
+/*
+Open the download in the same tab.
+GitHub will handle the ISO download.
+*/
+
+heroDownload.addEventListener(
+    "click",
+    function () {
+
+        window.location.href =
+            DOWNLOAD_URL;
+
+    }
+);
+
+
+downloadButton.addEventListener(
+    "click",
+    function () {
+
+        window.location.href =
+            DOWNLOAD_URL;
+
+    }
+);
 
 </script>
 
 </body>
 </html>
-```
